@@ -43,7 +43,8 @@ for line in fhand:
     ki = remove_tags(s)
     usi = re.search("Contact Name", ki)
     if usi:
-       su.append(ki)
+       lor = ki[14:]
+       su.append(lor)
     reg = re.findall(r"[A-Za-z0-9._%+-]+"
 
                      r"@[A-Za-z0-9.-]+"
@@ -62,7 +63,6 @@ for line in fhand:
      
      textfile.write(element + "\n")
 textfile.close()
-
 
 
 
