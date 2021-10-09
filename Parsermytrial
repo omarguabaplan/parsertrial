@@ -20,7 +20,8 @@ textfile= open("readme4.txt","w")
 
 fhand = urllib.request.urlopen ('https://www.chamber.nyc/directory.php?l=a') 
 
-su = []
+pu = []
+hu = []
 
 for line in fhand: 
 
@@ -44,25 +45,28 @@ for line in fhand:
     usi = re.search("Contact Name", ki)
     if usi:
        lor = ki[14:]
-       su.append(lor)
-    reg = re.findall(r"[A-Za-z0-9._%+-]+"
+       pu.append(lor)
+    reg = re.search(r"[A-Za-z0-9._%+-]+"
 
                      r"@[A-Za-z0-9.-]+"
 
-                     r"\.[A-Za-z]{2,4}", s) 
+                     r"\.[A-Za-z]{2,4}", ki)
+    if reg:
+     	hu.append(reg[0])
 
   
 
     # printing the list output 
 
-    print(reg)
-    print(su)
-    lu = set(reg)
-    for element in lu:
+    
+print(pu)
+print(hu)
+    
+    
      
      
-     textfile.write(element + "\n")
-textfile.close()
+     
+
 
 
 
