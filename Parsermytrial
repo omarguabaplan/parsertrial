@@ -41,7 +41,9 @@ for line in fhand:
        return TAG_RE.sub('', text)
     
     ki = remove_tags(s)
-    su.append(ki)
+    usi = re.search("Contact Name", ki)
+    if usi:
+       su.append(ki)
     reg = re.findall(r"[A-Za-z0-9._%+-]+"
 
                      r"@[A-Za-z0-9.-]+"
